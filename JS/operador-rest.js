@@ -7,6 +7,8 @@ var equipe = {
     mostrarIntegrantes: function() {
       this.integrantes.forEach(integrante => {
         console.log(integrante + " é membro do time " + this.nome);
+        console.log(`${integrante} é membro do time  ${this.nome}`);
+
       })
     }
   }
