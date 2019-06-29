@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio 1</title>
+</head>
+<body>
+        <input type="text" id="texto">
+        <button id="botao">Ok</button>
+    <div><h1 id="mostrar"></h1></div>
+
+    <script>
+    var texto = document.getElementById('texto');
+    var botao = document.getElementById('botao');
+    var mostrar = document.getElementById('mostrar');
+    
+    
+    botao.addEventListener('click', function(event){
+        mostrar.innerHTML = texto.value;
+
+    });
+
+    </script>
+</body>
+</html>

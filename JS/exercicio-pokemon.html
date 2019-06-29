@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon</title>
+</head>
+<body>
+
+        <style>
+
+                body{
+                    max-height: 100vh;
+                    border: 10px solid black    }
+            
+                .container{
+                    display: flex;
+                }
+            
+                .procurar{
+                    width: 50%;
+                    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/933802598689448503/9178C72797F7DED243DBEF67A90DEE68204890FF/');
+                    height: 580px;
+                    background-repeat: no-repeat;
+                    background-size: cover
+                }
+            
+                .conteudo{
+                    width: 50%;
+                   position: relative;
+                }
+            
+                .foguete{
+                    width: 150px;
+                    height: 150px;
+                    margin-left: 40%;
+                    margin-top: 65%;
+                    position: absolute;
+                    bottom: 0;
+                    transition: all ease-in-out 0.5s;
+               }
+            
+                .titulo{
+                    font-size: 3em;
+                    text-align: center;
+                    padding-top: 20%;
+                    color: white;
+                }
+            
+                .pesquisar{
+                    margin-left: 15%;
+                    height: 5%;
+                }
+            
+                .btn{
+                    display: block;
+                    margin-left: 35%;
+                    margin-top: 5%;
+                    width: 200px;
+                    height: 35px;
+                }
+            
+                #count{
+                    text-align: center;
+                    font-size: 3em;
+                }
+            
+            
+                .subir{
+                    transform: translateY(10px);
+                }
+            
+            </style>
+            <body>
+                <div class="container">
+                    <div class="procurar">
+                        <h1 class="titulo">Procure seu Pokemon</h1>
+                        <input type="text" name="" id="pesquisar" class="pesquisar" size="60" placeholder="Digite o nome do Pokemon">
+                        <button class="btn" id="btn">Pesquisar</button>
+                        <h1 id="count"></h1>
+                    </div>
+                    <div id="conteudo">
+                        
+                    </div>   
+                </div>
+    <script>
+
+ 
+
+        var botao = document.getElementById('btn');
+        botao.addEventListener('click', function() {
+            var xhttp = new XMLHttpRequest();
+            var pesquisar = document.getElementById('pesquisar').value;
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var json = JSON.parse(xhttp.responseText);
+                document.getElementById('conteudo').innerHTML = json.results;
+                
+                console.log(json);
+            }
+            }
+            xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon', true);
+            xhttp.send();
+
+
+});
+        
+    </script>
+    
+</body>
+</html>

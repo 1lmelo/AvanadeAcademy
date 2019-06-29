@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio 1</title>
+</head>
+<body>
+        <input type="text" id="texto" onkeyup="mostrar()">
+    <div><img src="" alt="" id="mostrar"></div>
+
+    <script>
+
+    var Frutas = function (nome, foto){
+    this.nome = nome; 
+    this.foto = foto;
+    }
+
+    var fruta = new Frutas ('Limão', 'limao.jpg');
+    var fruta = new Frutas ('Maça', 'maca.jpg');
+    var fruta = new Frutas ('Morango', 'morango.jpg');
+    var fruta = new Frutas ('Uva', 'uva.jpg');
+    var fruta = new Frutas ('Abacaxi', 'abacaxi.jpg');
+
+    Frutas.prototype.mostrar = function(){
+        var texto = document.getElementById('texto');
+        var mostrar = document.getElementById('mostrar');
+
+        mostrar.innerHTML = texto.value;
+    }
+
+    function mostrar(){
+        var img = document.getElementById('mostrar').src = this.foto;
+            
+    }
+
+   
+
+    
+
+    </script>
+</body>
+</html>
