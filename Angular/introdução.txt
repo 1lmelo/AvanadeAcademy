@@ -1,0 +1,10 @@
+Criar projeto 
+-- ng new {nome do projeto}
+
+
+Executar projeto 
+- ng server --open
+
+
+Criar componente
+- ng g component {nome componente}
