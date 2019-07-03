@@ -17,6 +17,13 @@ export class TodoService {
     return this.httpCliente.get<Todo[]>('http://localhost:3000/todos');
   }
 
+
+  adicionarTodo(todo: Todo){
+    return this.httpCliente.post('http://localhost:3000/todos', todo);
+  }
+
+
+
   aumetar(){
       this.pCont.next(this.pCont.value + 1);
   }

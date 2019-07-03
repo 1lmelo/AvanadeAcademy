@@ -1,0 +1,57 @@
+
+
+<form #form="ngForm">
+
+ <div>
+   E-mail
+
+   <input
+     type="text"
+     [(ngModel)]="todo.title"
+     #title="ngModel"
+     required
+     name="title"
+   />
+
+   <div *ngIf="title.errors && title.touched">
+     <div *ngIf="title?.errors.required">Título é obrigatório</div>
+   </div>
+ </div>
+
+ <div>
+   Descrição
+
+   <input
+     type="text"
+     [(ngModel)]="todo.description"
+     #descricao="ngModel"
+     required
+     name="email"
+   />
+
+   <div *ngIf="descricao.errors && descricao.touched">
+     <div *ngIf="descricao?.errors.required">Descrição é obrigatória</div>
+   </div>
+ </div>
+
+ <div><input type="checkbox" [(ngModel)]="todo.finished" name="finished" /> Finalizado?</div>
+
+ <div>
+   Data:
+
+   <input
+     type="text"
+     [(ngModel)]="todo.date"
+     #date="ngModel"
+     required
+     name="date"
+   />
+ </div>
+
+ <button [disabled]="form.invalid" (click)="enviar()">Enviar</button>
+</form>
+
+
+
+
+
