@@ -1,14 +1,16 @@
-  <h1>Hello World</h1>
-  <i>{{title}}</i><br>
-    <div *ngIf="title == 'Melo'">Sobrenome é {{title}}</div>
-    <button (click)="novoItem()" class="btn btn-danger">Novo Item</button>
-    <button (click)="limparItem()" class="btn btn-danger">Limpar Lista</button>
-    <ul>
-      <li *ngFor="let item of items">
-        <app-todo-item [data]="item"></app-todo-item>
-      </li>
-    </ul>
-
--------------------------------
-<br>
 <app-contador></app-contador>
+
+
+App: {{cont}}
+
+<br>
+------------------------------------
+
+
+<app-contador-botoes></app-contador-botoes>
+
+
+<br>
+<a routerLink="/">Home</a>  | <a routerLink="/todos">Todos</a>
+
+<router-outlet></router-outlet>

@@ -8,3 +8,10 @@ Executar projeto
 
 Criar componente
 - ng g component {nome componente}
+
+
+Criar servico 
+ng g service {nome componente}
+
+
+BehaviorSubject {assiste o observator}
