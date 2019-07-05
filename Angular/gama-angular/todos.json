@@ -20,20 +20,6 @@
       "description": "Aprender sobre formulários.",
       "finished": false,
       "date": "2018-11-02"
-    },
-    {
-      "id": 4,
-      "title": "Lucas",
-      "description": "Teste",
-      "finished": true,
-      "date": "20/02/1996"
-    },
-    {
-      "id": 5,
-      "title": "Lucas",
-      "description": "Teste",
-      "finished": false,
-      "date": "Ontem"
     }
   ]
 }
