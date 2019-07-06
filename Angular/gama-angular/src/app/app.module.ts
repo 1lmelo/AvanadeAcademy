@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { BoolPipe } from './todo/bool.pipe';
 import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   // { path: 'cep/:numero', component: CepComponent  },
   { path: 'contador', component: ContadorComponent  },
   { path: 'contador-botoes', component: ContadorBotoesComponent  },
-  { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)  },
+  { path: 'todos', canActivate: [AuthGuard], loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)  },
   { path: 'cep', loadChildren: () => import('./cep/cep.module').then(m => m.CepModule)  },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
 

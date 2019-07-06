@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from './todo/todo.service';
 import { map, debounceTime } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,32 +12,36 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   cont = 0;
-  email = '';
-  constructor(public todoService: TodoService, private authService: AuthService) {}
+
+  user$: Observable<any>; 
+
+
+  constructor(public todoService: TodoService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.todoService.cont.pipe(map( x => x * 2), debounceTime(2000)).subscribe(value => {
      this.cont = value;
 
+      const token = localStorage.getItem('token');
 
      if(token){
        this.authService.verifyToken(token).subscribe((v: any) =>{
-          this.authService.verifyToken.setUser({
+          this.authService.setUser({
+            id: v.users[0].localId,
             email: v.users[0].email,
           });
        });
      }
 
-     this.authService.currentUser.subscribe((v) => {
-      if (v !== null) {
-        this.email = v.email;
-      }
-    });
+     this.user$ = this.authService.currentUser;
  
-
-
-
     });
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.authService.setUser(null);
+    this.router.navigateByUrl('/auth/login');
   }
 
 }

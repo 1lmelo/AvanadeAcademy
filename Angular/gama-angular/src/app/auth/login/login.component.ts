@@ -27,6 +27,7 @@ this.authService.login(this.email, this.senha)
 
     this.authService.setUser({
       email: value.email,
+      id: value.localId,
     });
   },
   (error) => {

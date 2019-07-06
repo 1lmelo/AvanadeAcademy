@@ -13,10 +13,11 @@ export class TodoService {
 
   constructor(private httpCliente: HttpClient) { }
 
-  getTodos(): Observable<Todo[]> {
-    return this.httpCliente.get<Todo[]>('http://localhost:3000/todos');
+  getTodos(userId): Observable<Todo[]> {
+    return this.httpCliente.get<Todo[]>('http://localhost:3000/users/' + userId + '/todos');
   }
-
+ 
+ 
 
   adicionarTodo(todo: Todo){
     return this.httpCliente.post('http://localhost:3000/todos', todo);
@@ -30,6 +31,18 @@ export class TodoService {
 
   diminuir(){
       this.pCont.next(this.pCont.value - 1);
+  }
+
+  getTodo(id){
+    return this.httpCliente.get('http://localhost:3000/todos/' +id);
+  }
+
+  deleteTodo(id){
+    return this.httpCliente.delete('http://localhost:3000/todos/' +id);
+  }
+
+  updateTodo(id, todo){
+    return this.httpCliente.put('http://localhost:3000/todos/' +id, todo);
   }
 
 }

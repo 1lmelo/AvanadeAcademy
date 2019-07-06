@@ -34,13 +34,11 @@ verifyToken(token){
   });
 }
 
-setUser(){
-
+setUser(user){
+this.pUser.next(user);
 }
 
 
-logout(){
 
-}
 
 }
