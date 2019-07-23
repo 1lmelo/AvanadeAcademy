@@ -99,12 +99,12 @@
             xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var json = JSON.parse(xhttp.responseText);
-                document.getElementById('conteudo').innerHTML = json.results;
+                document.getElementById('conteudo').innerHTML = json.results.name;
                 
                 console.log(json);
             }
             }
-            xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon', true);
+            xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/'+ name ,  true);
             xhttp.send();       
 
 

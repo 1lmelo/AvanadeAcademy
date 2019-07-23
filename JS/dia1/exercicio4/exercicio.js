@@ -10,3 +10,4 @@ Pessoa.prototype.ensinar = function(){
 }
 
 console.log(Professor.ensinar())
+
